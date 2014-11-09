@@ -33,7 +33,7 @@ class SslHandshakeHandler:
         host = connection.get_servername()
         if host:
           cert_str = (
-              self.server.http_archive_fetch.http_archive.get_certificate(host))
+              self.server.get_certificate(host))
           new_context = certutils.get_ssl_context()
           cert = certutils.load_cert(cert_str)
           new_context.use_certificate(cert)
