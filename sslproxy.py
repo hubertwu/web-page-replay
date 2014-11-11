@@ -43,7 +43,7 @@ class SslHandshakeHandler:
         # else: fail with 'no shared cipher'
       except Exception, e:
         # Do not leak any exceptions or else openssl crashes.
-        logging.error('Exception in SNI handler', e)
+        logging.error('Exception in SNI handler: %s', e)
 
     context.set_tlsext_servername_callback(handle_servername)
     self.connection = certutils.get_ssl_connection(context, self.connection)
